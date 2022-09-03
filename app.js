@@ -61,34 +61,41 @@ const commonLetter = (str) => {
 };
 
 const findVowel = (str) => {
-  let consonantRegex = /[bcdfghjklmnpqrstvwxys]/gi;
-  result.innerText = `Der eingegebene Satz enthält diese Konsonanten ${str
+  let consonantRegex = /[bcdfghjklmnpqrstvwxyzs]/gi;
+  result.innerText = `Der eingegebene Satz enthält diese Vokale ${str
     .split(' ')
     .join('')
     .replace(consonantRegex, '')
     .split('')
     .join(',')}`;
 };
-// const str = 'A man, a plan, a canal. Panama';
+
 let re = /[\W_0-9]/g; //alfanumeric olmayanlar
-// let re = /[A-Za-z_]/g;// sadece letter olanlar
+let rem = /[A-Za-z_]/g; // sadece letter olanlar
 let num = /[0-9]/g; // sadece number olanlar
 
-// let vowel = /[aeiou]/g;
-let consonantRegex = /[bcdfghjklmnpqrstvwxys]/gi;
-let vowel = ['a', 'e', 'u', 'i', 'o', 'ü', 'ä'];
-let som = 'merhaba dunya';
+const isLeapYear = (year) => {
+  if (year % 100 === 0) {
+    if (year % 400 === 0) {
+      console.log(`${year} is a leap year.`);
+    } else {
+      console.log(`${year} is not a leap year.`);
+    }
+  } else {
+    if (year % 4 === 0) {
+      console.log(`${year} is a leap year.`);
+    } else {
+      console.log(`${year} is not a leap year.`);
+    }
+  }
+};
 
-console.log(
-  som.split(' ').join('').replace(consonantRegex, '').split('').join(',')
-);
+// isLeapYear(64);
+// isLeapYear(1900);
+// isLeapYear(2000);
+// isLeapYear(1912);
 
-// const fin = som.split('').filter((e, i) => e === vowel[i]);
-// let ar = '';
-// vowel.forEach((e) => {
-//   if (som.includes(e)) {
-//     ar += e;
-//   }
-// });
-
-// console.log(fin);
+// // second way:
+// function leapYear(year) {
+//   return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0;
+// }
